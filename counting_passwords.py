@@ -8,7 +8,6 @@ def parsarg():
 	return parser.parse_args()
 
 if __name__ == "__main__":
-	passwords = []
 	complites = []
 	args = parsarg()
 
@@ -16,9 +15,7 @@ if __name__ == "__main__":
 	    accounts = accountsFile.read().split('\n')
 
 	# Вытаскиваем пароли из базы
-	for account in accounts:
-	    password = account.split(args.separator)[1]
-	    passwords.append(password)
+	passwords = [account.split(args.separator)[1] for account in accounts]
 
 	# Считаем их колличество и добавляем в список уже без повторов
 	for password in passwords:
